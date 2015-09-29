@@ -36,16 +36,18 @@ constituents)
 | Twenty-First Century Fox Class A | FOXA   |
 | Twenty-First Century Fox Class B | FOX    |
 
-
 The maximum number of observations is reached for nine different
 companies: 
 
+<p align="center">
 <table class="data-frame"><tbody><tr><th></th><th>AA</th><th>BA</th><th>CAT</th><th>KO</th><th>DD</th><th>GE</th><th>HPQ</th><th>IBM</th><th>DIS</th></tr><tr><th>1</th><td>13526</td><td>13526</td><td>13526</td><td>13526</td><td>13526</td><td>13526</td><td>13526</td><td>13526</td><td>13526</td></tr></tbody></table>
+</p>
 
 Overall, the number of available observations is quite distinct:
 
 <p align="center">
-<img src="../market_risk_analysis/pics/missing_observations-1.svg" alt="Number of observations" height="150px"/>
+<img src="../market_risk_analysis/pics/missing_observations-1.svg"
+alt="Number of observations" height="350px" width="650px"/>
 </p>
 
 - picture distribution nObs
