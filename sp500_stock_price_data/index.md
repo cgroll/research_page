@@ -99,6 +99,41 @@ even less than 500 observations:
 | QRVO   |        2015-01-02 |            184 |
 | WRK    |        2015-06-24 |             65 |
 
+# Raw data: returns of zero
+
+The dataset contains a lot of returns that are equal to zero, hence
+representing days without price movements. From overall **6831135**
+possible observations (number of dates $\times$ number of assets) only
+**3215398** are not missing, which amounts to **52.9%** missing
+values. Taking all available observations, in turn, another **5.7%**
+are zero.
+
+Thereby, the number of zero returns differs over assets:
+
+<p align="center">
+<img src="../market_risk_analysis/pics/zero_returns-1.svg"
+alt="Number of observations" width="650px"/>
+</p>
+
+Looking at relative frequencies of zero returns, individual companies
+still differ:
+
+<p align="center">
+<img src="../market_risk_analysis/pics/zero_returns-2.svg"
+alt="Number of observations" width="650px"/>
+</p>
+
+There does exist a pattern, however, as stocks with first available
+observations that date back a longer time tend to have a higher
+frequency of zero returns:
+
+<p align="center">
+<img src="../market_risk_analysis/pics/zero_returns-3.svg"
+alt="Number of observations" width="650px"/>
+</p>
+
+
+
 # Raw data: descriptive analysis
 
 # Processed data: descriptive analysis
