@@ -67,7 +67,7 @@ data gaps in between, so that sample size increases quite regularly
 with duration to the first observation:
 
 <p align="center">
-<img src="../market_risk_analysis/pics/missing_observations-3.svg"
+<img src="https://rawgit.com/cgroll/market_risk_analysis/master/pics/missing_observations-3.svg"
 alt="Number of observations" width="650px"/>
 </p>
 
