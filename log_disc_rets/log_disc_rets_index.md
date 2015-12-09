@@ -187,7 +187,7 @@ $$
 \end{aligned}
 $$
 
-### Relating arithmetic means of *R* and $r^{log}$
+### Relating arithmetic means of *R* and *$$r^{log}$$*
 
 $$\begin{aligned}
 \mu(R)&=\exp\left( \mu(r^{log}) + \frac{\sigma^{2}(r^{log})}{2}\right)\\
