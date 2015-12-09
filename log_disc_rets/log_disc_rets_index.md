@@ -198,8 +198,9 @@ $$\begin{aligned}
 or, the other direction:
 
 $$\begin{aligned}
-\mu(r^{log})&=\log\left( 1+\frac{\sigma^{2}(R)}{\mu^{2}(R)} \right)\\
-\sigma^{2}(r^{log})&=\log\left( \mu(R) \right) 
+\sigma^{2}(r^{log})&=\log\left( 1+\frac{\sigma^{2}(R)}{\mu^{2}(R)} \right)\\
+\mu(r^{log})&=\log\left( \frac{\mu(R)}{\sqrt{1 + \frac{\sigma^{2}(R)}{\mu^{2}(R)}}} \right) \\
+&=\log(\mu(R))-\frac{1}{2}\sigma^{2}(r^{log})
 \end{aligned}$$
 
 
