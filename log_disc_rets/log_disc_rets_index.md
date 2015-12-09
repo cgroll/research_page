@@ -59,7 +59,10 @@ simultaneously also match geometric means.
 
 $$
 \begin{aligned}
-\hat{\mu}_{Geo}(R)&=\left( \prod_{i=1}^{n}R_{i} \right)^{\frac{1}{n}}\\
+\hat{\mu}_{Geo}(R)
+&=\left( \prod_{i=1}^{n}R_{i} \right)^{\frac{1}{n}}\\
+&=\exp\left( \log\left( \left( \prod_{i=1}^{n}R_{i} \right)^{\frac{1}{n}} \right)  \right)\\ 
+&=\exp\left(\frac{1}{n} \log\left(\prod_{i=1}^{n}R_{i} \right)\right)\\ 
 &=\exp\left( \frac{1}{n}\sum_{i=1}^{n} \log(R_{i})\right) \\
 &=\exp\left( \frac{1}{n}\sum_{i=1}^{n} r^{\log}_{i}\right)\\
 &=\exp\left( \hat{\mu}(r^{\log})\right)
@@ -77,13 +80,13 @@ parts.
 The geometric mean of a log-normally distributed random variable
 
 $$
-Y:=\exp(X)\text{, with } X\sim \mathcal{N}(\mu,\sigma^{2})
+X:=\exp(Y)\text{, with } Y\sim \mathcal{N}(\mu,\sigma^{2})
 $$
 
 is given by 
 
 $$
-\mu_{Geo}(Y)=\exp(\mu(Y))
+\mu_{Geo}(X)=\exp(\mu(Y))
 $$
 
 ### Usage for returns
@@ -95,12 +98,12 @@ $$
 R=\exp(r^{\log})
 $$
 
-Hence, the formulas for geometric and arithmetic mean conversions
-apply for gross returns *R*:
+Hence, geometric means of gross returns and arithmetic means of
+logarithmic returns can be related:
 
 $$\begin{aligned}
-\mu_{Geo}(R)&=\exp(\mu(R))&\Leftrightarrow \\
-\mu(R)&=\log(\mu_{Geo}(R))
+\mu_{Geo}(R)&=\exp(\mu(r^{log}))&\Leftrightarrow \\
+\mu(r^{log})&=\log(\mu_{Geo}(R))
 \end{aligned}$$
 
 
@@ -137,22 +140,23 @@ $$
 
 ### Special case: log-normal
 
-For $$X\sim \mathcal{N}(\mu,\sigma^{2})$$, random variable 
+For $$Y\sim \mathcal{N}(\mu,\sigma^{2})$$, random variable 
 
 $$
-Y:=\exp(X)
+X:=\exp(Y)
 $$
 
-is log-normally distributed, and the moments of *Y* can be calculated
+is log-normally distributed, and the moments of *X* can be calculated
 via
 
 $$
-\mu(Y)=\exp\left(\mu(X)+\frac{\sigma(X)^{2}}{2}\right)
+\mu(X)=\exp\left(\mu(Y)+\frac{\sigma(Y)^{2}}{2}\right)
 $$
 
 $$
-\sigma^{2}(Y)=\left(\exp(\sigma(X)^{2})-1\right)\exp(2\mu(X)+\sigma(X)^{2})
+\sigma^{2}(X)=\left(\exp(\sigma(Y)^{2})-1\right)\exp(2\mu(Y)+\sigma(Y)^{2})
 $$
+
 
 
 ### Special case: log-normally distributed returns *R*
@@ -182,6 +186,23 @@ $$
 \log(\mu(R))-\frac{\sigma(r^{\log})^{2}}{2}&=\mu(r^{\log})
 \end{aligned}
 $$
+
+### Relating arithmetic means of *R* and $r^{log}$
+
+$$\begin{aligned}
+\mu(R)&=\exp\left( \mu(r^{log}) + \frac{\sigma^{2}(r^{log})}{2}\right)\\
+\sigma^{2}(R)&=\left( \exp\left( \sigma^{2}(r^{log}) \right)-1\right)
+\exp\left( 2\mu(r^{log})+\sigma^{2}(r^{log}) \right)
+\end{aligned}$$
+
+or, the other direction:
+
+$$\begin{aligned}
+\mu(r^{log})&=\log\left( 1+\frac{\sigma^{2}(R)}{\mu^{2}(R)} \right)\\
+\sigma^{2}(r^{log})&=\log\left( \mu(R) \right) 
+\end{aligned}$$
+
+
 
 ## Square-root-of-time scaling
 
@@ -266,3 +287,37 @@ F^{-1}_{Y}(\alpha)&=\left( F_{X}(g^{-1}(\alpha)) \right)^{-1} \\
 &=\exp\left( n\mu-\Phi^{-1}(\alpha)\sqrt{n}\sigma \right)
 \end{aligned}
 $$
+
+
+## Scaling arithmetic net return moments
+
+For annualized moments mostly linear scaling is assumed. However,
+gross returns are *multiplied* over time, so that even expectation
+does not scale linearly. Instead, one has to translate gross return
+moments to logarithmic return moments. This, however, requires a
+distributional assumption. Once logarithmic return moments are known,
+they can easily be scaled over time: expectation linearly, and
+volatility as square-root-of-time assuming independence over time. 
+
+Now annualized logarithmic return moments could easily be translated
+into arithmetic gross return moments again. However, it might make
+sense to compare different assets rather on a basis of geometric means
+anyways. 
+
+
+## Utility
+
+What should utility be based on?
+
+$$
+\mathbb{U}(X)=g(\mu(X),\sigma(X))
+$$
+
+$$
+\mathbb{U}(X)=g(\mu(X), \text{VaR}_{\alpha}(X))
+$$
+
+$$
+\mathbb{U}(X)=g(\mu_{Geo}(X), \text{VaR}_{\alpha}(X))
+$$
+
