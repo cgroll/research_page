@@ -321,3 +321,30 @@ $$
 \mathbb{U}(X)=g(\mu_{Geo}(X), \text{VaR}_{\alpha}(X))
 $$
 
+## Unresolved questions
+
+Is the information contained in geometric means equal to the
+information contained in arithmetic logarithmic means?
+
+$$
+\mu_{Geo}(R_{1})=\mu_{Geo}(R_{2}) \overset{?}{\Leftrightarrow} \mu(r^{log}_{1})=\mu(r^{log}_{2})
+$$
+
+Under log-normality: yes.
+
+Could a $\mu-\sigma$ improvement still lead to a deterioration in
+utility? 
+
+For example, $R_{1}$ is preferred in utility:
+
+$$\begin{aligned}
+\text{VaR}(R_{1})&=\text{VaR}(R_{2})\\
+\mu_{Geo}(R_{1})&>\mu_{Geo}(R_{2})
+\end{aligned}$$
+
+Still, $R_{2}$ is preferred in $\mu-\sigma$ terms:
+
+$$\begin{aligned}
+\sigma(R_{1})&>\sigma(R_{2})\\
+\mu(R_{1})&<\mu(R_{2})
+\end{aligned}$$
