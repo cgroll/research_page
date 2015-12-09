@@ -4,8 +4,8 @@ layout: default
 
 ## Cone calculation steps
 
-- get $$\mu^{Geo}(R)$$ and $$\sigma(r^{\log})$$
-- transform $$\mu^{Geo}(R)$$ to $$\mu(R)$$ under assumption of
+- get $$\mu_{Geo}(R)$$ and $$\sigma(r^{\log})$$
+- transform $$\mu_{Geo}(R)$$ to $$\mu(R)$$ under assumption of
   log-normality
 - transform $$\mu(R)$$ to $$\mu(r^{\log})$$
 - get quantiles for $$r_{n}^{\log}=\sum_{i=1}^{n}r_{i}^{\log}\sim
@@ -46,9 +46,7 @@ r^{disc,\%}&=100\left( \exp\left( \frac{r^{\log,\%}}{100} \right) -1 \right)
 The geometric mean of a sample is given by
 
 $$
-\begin{equation*}
 \mu_{Geo}(R)=\left( \prod_{i=1}^{n}R_{i} \right)^{\frac{1}{n}}
-\end{equation*}
 $$
 
 Hence, if two assets have the same geometric mean for gross returns
@@ -60,11 +58,12 @@ However, matching arithmetic logarithmic means for two assets will
 simultaneously also match geometric means.
 
 $$
-\begin{align*}
-\left( \prod_{i=1}^{n}R_{i} \right)^{\frac{1}{n}}&=\exp\left( \frac{1}{n}\sum_{i=1}^{n} \log(R_{i})\right) \\
+\begin{aligned}
+\hat{\mu}_{Geo}(R)&=\left( \prod_{i=1}^{n}R_{i} \right)^{\frac{1}{n}}\\
+&=\exp\left( \frac{1}{n}\sum_{i=1}^{n} \log(R_{i})\right) \\
 &=\exp\left( \frac{1}{n}\sum_{i=1}^{n} r^{\log}_{i}\right)\\
 &=\exp\left( \hat{\mu}(r^{\log})\right)
-\end{align*}
+\end{aligned}
 $$
 
 Alternatively, if geometric means are matched instead of arithmetic
@@ -78,17 +77,13 @@ parts.
 The geometric mean of a log-normally distributed random variable
 
 $$
-\begin{equation*}
 Y:=\exp(X)\text{, with } X\sim \mathcal{N}(\mu,\sigma^{2})
-\end{equation*}
 $$
 
 is given by 
 
 $$
-\begin{equation*}
 \mu_{Geo}(Y)=\exp(\mu(Y))
-\end{equation*}
 $$
 
 ### Usage for returns
@@ -97,9 +92,7 @@ Given that $$r^{\log}\sim \mathcal{N}(\mu, \sigma^{2})$$, gross return
 *R* follows a log-normal distribution:
 
 $$
-\begin{equation*}
 R=\exp(r^{\log})
-\end{equation*}
 $$
 
 Hence, the formulas for geometric and arithmetic mean conversions
@@ -115,15 +108,14 @@ $$\begin{aligned}
 
 Although 
 
-$$\begin{equation*}
+$$
 \mathbb{E}[aX+b]=a \mathbb{E}[X]+b
-\end{equation*}$$
+$$
 
 there is no such easy formula for more general transformations:
 
-$$\begin{equation*}
+$$
 \mathbb{E}[g(X)]\neq g(\mathbb{E}[X])
-\end{equation*}
 $$
 
 ### Converting return moments
@@ -131,39 +123,36 @@ $$
 Applied to returns this means that it is generally not possible to
 translate a known value for $$\mu(R)$$ into $$\mu(r^{\log,\%})$$:
 
-$$\begin{equation*}
-\mu(r^{\log,\%})=\mu(100\log(R))\neq g(\mu(R))
-\end{equation*}.$$
+$$
+\mu(r^{\log,\%})=\mu(100\log(R))\neq g(\mu(R)).
+$$
 
 One would need to have the distribution of *R*, apply the
 transformation theorem and integrate over the newly derived density
 function. The same reasoning also applies to standard deviations:
 
-$$\begin{equation*}
+$$
 \sigma(r^{\log,\%})=\sigma(100\log(R))\neq g(\sigma(R))
-\end{equation*}$$
+$$
 
 ### Special case: log-normal
 
 For $$X\sim \mathcal{N}(\mu,\sigma^{2})$$, random variable 
 
-$$\begin{equation*}
+$$
 Y:=\exp(X)
-\end{equation*}
- $$
+$$
 
 is log-normally distributed, and the moments of *Y* can be calculated
 via
 
-$$ \begin{equation*}
+$$
 \mu(Y)=\exp\left(\mu(X)+\frac{\sigma(X)^{2}}{2}\right)
-\end{equation*}
 $$
 
 $$
-\begin{equation*}
 \sigma^{2}(Y)=\left(\exp(\sigma(X)^{2})-1\right)\exp(2\mu(X)+\sigma(X)^{2})
-\end{equation*}$$
+$$
 
 
 ### Special case: log-normally distributed returns *R*
@@ -173,9 +162,7 @@ $$r^{\log,\%}\sim \mathcal{N}$$ (and hence also $$r^{\log}\sim \mathcal{N}$$),
 *R* follows a log-normal distribution: 
 
 $$
-\begin{equation*}
 R=\exp\left(\frac{r^{\log,\%}}{100}\right) \text{ with } r^{\log,\%}\sim \mathcal{N}
-\end{equation*}
 $$
 
 As a consequence, moments of $$r^{\log,\%}$$ can easily be translated
@@ -206,9 +193,8 @@ logarithmic returns.
 
 For independent variables we get:
 
-$$\begin{equation*}
+$$
 \mathbb{V}\left( \sum_{i=1}^{n}X_{i} \right) = n \mathbb{V}(X_{i})
-\end{equation*}
 $$
 
 However, variances only translate into quantiles with an
@@ -218,26 +204,20 @@ distributed variables $$X_{i}$$, $$\sum_{i=1}^{n}X_{i}\sim
 be obtained by
 
 $$
-\begin{equation*}
 z = \mu + \sigma\Phi^{-1}(\alpha)
-\end{equation*}
 $$
 
 A similar formula also exists for variables following a Student's *t*
 distribution. However, while 
 
 $$
-\begin{equation*}
 \sum_{i=1}^{n}X_{i}\sim \mathcal{N}\text{ for } X_{i}\sim \mathcal{N},
-\end{equation*}
 $$
 
 the distribution is generally not maintained under summation:
 
 $$
-\begin{equation*}
 \sum_{i=1}^{n}X_{i}\nsim t\text{ for } X_{i}\sim t, 
-\end{equation*}
 $$
 
 as the sum of iid random variables converges to the normal
@@ -245,9 +225,7 @@ distribution:
 
 
 $$
-\begin{equation*}
 \sum_{i=1}^{n}X_{i}\rightarrow \mathcal{N}.
-\end{equation*}
 $$
 
 
@@ -257,9 +235,7 @@ With $$\alpha=0.95$$ we get the following quantiles for logarithmic
 multi-period returns:
 
 $$
-\begin{equation*}
 z_{n} = n\mu - 1.959963\sqrt{n}\sigma
-\end{equation*}
 $$
 
 ### Translating quantiles to discrete returns
@@ -267,9 +243,7 @@ $$
 For a transformation 
 
 $$
-\begin{equation*}
 Y:=g(X)
-\end{equation*}
 $$
 
 the cdf $$F_{Y}(z)$$ can be derived according to:
